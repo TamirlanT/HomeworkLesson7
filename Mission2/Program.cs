@@ -37,20 +37,17 @@ void PrintArray(int[,] array)
 }
 void FindIndex(int[,]array)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-       for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (i == line-1 && j == column-1)
-            Console.WriteLine(array[i , j]);
-        else
-        if (line > array.GetLength(0) && column > array.GetLength(1))
-            Console.WriteLine("Такого числа нет");
-            break;
-        }     
-    }      
+        if (line-1 == i && column-1 == j)
+            Console.WriteLine($"Число под индексом: {array[i,j]}");
+    }
+    if (line > array.GetLength(0) | column > array.GetLength(1))
+        Console.WriteLine("Такого числа нет");
 }
+
 int [,] array = new int [m,n];
 CreateArray(array, -10,10);
 PrintArray(array);
-FindIndex(array);
+FindIndex(array); 
